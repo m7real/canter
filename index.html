@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#f4f0e5">
+  <title>Canter — The Open Trail</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <div class="page-shell">
+    <header class="site-header">
+      <a class="brand" href="#top" aria-label="Canter home">
+        <span class="brand-mark" aria-hidden="true">
+          <svg viewBox="0 0 40 40" fill="none">
+            <path d="M9 28.5c3.1-2.1 5.1-4.7 6-8.6l3.2-3.5 2.1-7.5 4 3.6 5.2 1.5-2 4.4 3.9 4.1-2.7 3-4.6-1.4-3.6 1.6-2.2 5.8H9Z" fill="currentColor"/>
+            <circle cx="25.7" cy="17.4" r="1.1" fill="#233c34"/>
+          </svg>
+        </span>
+        <span>canter<span class="brand-dot">.</span></span>
+      </a>
+      <div class="header-right">
+        <span class="edition">A LITTLE GAME ABOUT GOING FAR</span>
+        <a class="header-link" href="#how-to-play">How to play <span aria-hidden="true">↗</span></a>
+      </div>
+    </header>
+
+    <main id="top">
+      <div class="intro">
+        <div>
+          <div class="eyebrow"><span class="eyebrow-line"></span> THE OPEN TRAIL <span class="eyebrow-number">/ 001</span></div>
+          <h1>Run wild. <em>Jump free.</em></h1>
+          <p>Open skies, a trusty horse, and a trail that never ends. How far can you go?</p>
+        </div>
+        <div class="personal-best" aria-label="Personal best">
+          <span class="best-icon" aria-hidden="true">✳</span>
+          <span><small>YOUR PERSONAL BEST</small><strong id="best-display">0000 <span>m</span></strong></span>
+        </div>
+      </div>
+
+      <section class="game-card" aria-label="Horse running game">
+        <div class="game-area" id="game-area">
+          <canvas id="game-canvas" aria-label="A horse running across a countryside trail and jumping over obstacles"></canvas>
+          <div class="game-hud">
+            <span class="round-label"><span class="live-dot"></span> THE OPEN TRAIL</span>
+            <div class="hud-right">
+              <div class="distance-display"><small>DISTANCE</small><strong id="score-display">0000 <span>m</span></strong></div>
+              <button class="icon-button" id="sound-button" type="button" aria-label="Mute sound" title="Toggle sound">
+                <svg class="sound-on" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11 5 6 9H3v6h3l5 4V5Z"/><path d="M15 9a5 5 0 0 1 0 6M18 6a9 9 0 0 1 0 12"/></svg>
+                <svg class="sound-off" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11 5 6 9H3v6h3l5 4V5Z"/><path d="m16 9 5 6m0-6-5 6"/></svg>
+              </button>
+              <button class="icon-button" id="pause-button" type="button" aria-label="Pause game" title="Pause game" disabled>
+                <svg class="pause-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M9 5v14M15 5v14"/></svg>
+                <svg class="play-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" aria-hidden="true"><path d="m8 5 11 7-11 7V5Z"/></svg>
+              </button>
+              <button class="icon-button" id="fullscreen-button" type="button" aria-label="Enter fullscreen" title="Enter fullscreen">
+                <svg class="fullscreen-enter" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 9V4h5M15 4h5v5M20 15v5h-5M9 20H4v-5"/></svg>
+                <svg class="fullscreen-exit" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 4v5H4M20 9h-5V4M15 20v-5h5M4 15h5v5"/></svg>
+              </button>
+            </div>
+          </div>
+
+          <div class="game-overlay" id="game-overlay">
+            <div class="overlay-panel">
+              <span class="overlay-kicker" id="overlay-kicker">YOUR ADVENTURE STARTS HERE</span>
+              <h2 id="overlay-title">The trail is<br><em>calling.</em></h2>
+              <p id="overlay-description">Time to stretch those legs. Leap over the hurdles and keep on running.</p>
+              <button class="primary-button" id="start-button" type="button">Start riding <span aria-hidden="true">↗</span></button>
+              <div class="overlay-hint"><span class="keycap">SPACE</span> or <span class="keycap">↑</span> to jump</div>
+            </div>
+          </div>
+          <button class="jump-button" id="jump-button" type="button" aria-label="Jump" disabled>JUMP <span aria-hidden="true">↑</span></button>
+          <span class="landscape-caption" aria-hidden="true">SOMEWHERE, OUT THERE <span>↗</span></span>
+        </div>
+        <div class="game-footer" id="how-to-play">
+          <div class="control-group"><span class="footer-label">THE CONTROLS</span><span class="control-item"><span class="keycap">SPACE</span> <span class="or">/</span> <span class="keycap">↑</span> <span class="or">/</span> <span class="keycap">W</span> <span>Jump over obstacles</span></span></div>
+          <div class="footer-note"><span class="footer-sparkle">✳</span> Run far. Stay curious. Try again.</div>
+        </div>
+      </section>
+      <div class="bottom-note"><span>MADE FOR THE JOY OF THE RIDE</span><span>NO FINISH LINE. JUST THE JOURNEY.</span></div>
+    </main>
+  </div>
+</body>
+</html>
